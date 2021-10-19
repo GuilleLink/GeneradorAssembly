@@ -1,0 +1,51 @@
+{
+	Program:
+	{
+		Program: {
+			name: "Program",
+			type: "Void",
+			objType: "class",
+			scope: "global",
+			offset: "None",
+			value: "None"
+		},
+		a: 
+		{
+			name: "a",
+			type: "boolean",
+			objType: "variable",
+			scope: "Program",
+			offset: "0",
+			value: "true"
+		},
+		factorial:
+		{
+			factorial:{
+				name: "factorial",
+				type: "int",
+				objType: "function",
+				scope: "factorial",
+				offset: "1",
+				value: "None"
+			},
+			n:{
+				name: "n",
+				type: "int",
+				objType: "parameter",
+				scope: "factorial",
+				offset: "1",
+				value: "None"
+			}
+		},
+		main:{
+			main:{
+				name: "main",
+				type: "void",
+				objType: "function",
+				scope: "main",
+				offset: "1",
+				value: "None"
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+class Program
+{
+    int x;
+    int z[5];
+    int y;
+
+    void test(int c, int f)
+    {
+        int d;        
+    }
+
+    void main(void)
+    {
+        int c;
+        int b;
+        int d;
+        c = 5;
+        if(c==5){
+            d = 5+c+8+6;
+            d = 10;
+        } else{
+            d = 1;
+        }
+        if(c==3){
+            b = 7;
+        }
+
+        while (d==3){
+            c = c;
+        }
+    }
+}
