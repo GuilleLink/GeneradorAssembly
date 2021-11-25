@@ -1,0 +1,31 @@
+DEF OutputInt
+EXIT DEF OutputInt
+
+DEF InputInt
+        Return 0
+EXIT DEF InputInt
+
+DEF factorial
+        IF L[0] == 0 GOTO IF_TRUE_0
+        GOTO IF_FALSE_0
+        IF_TRUE_0
+                RETURN 1
+                GOTO END_IF_0
+        IF_FALSE_0
+                t0 = L[0] - 1
+                PARAM t0
+                CALL factorial, 1
+                t0 = L[0] *  R
+                RETURN t0
+        END_IF_0
+EXIT DEF factorial
+
+DEF main
+        CALL InputInt, 0
+        L[0] = R
+        PARAM L[0]
+        CALL factorial, 1
+        L[0] = R
+        PARAM L[0]
+        CALL OutputInt, 1
+EXIT DEF main

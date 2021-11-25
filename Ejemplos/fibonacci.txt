@@ -1,0 +1,30 @@
+class Program
+{
+    void cout(int a){}
+    int cin(){return 0;}
+    int fib(int a)
+    {
+        int x;
+        int y;
+        int z;
+
+        if (a <= 2)
+        {
+            return 1;
+        }
+
+        x = fib(a - 1);
+        y = fib(a - 2);
+        z = x + y
+        return z;
+    }
+
+    void main()
+    {
+        int x;
+        int res;
+        x = cin();
+        res = fib(x);
+        cout(res);
+    }
+}

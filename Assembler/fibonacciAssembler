@@ -1,0 +1,73 @@
+.global _start
+
+OutputInt:
+        sub     sp, sp, #4
+        ldr     r1, =0xFF201000
+        add     r0, r0, #48
+        str     r0, [r1]
+        add     sp, sp, #4
+        bx      lr
+
+fib:
+        push    {r11, lr}
+        mov     r11, sp
+        sub     sp, sp, #16
+        str     r0, [sp, #0]
+        ldr     r0, [sp, #0]
+        mov     r1, #2
+        cmp     r0, r1
+        ble     IF_TRUE_0
+        b       IF_FALSE_0
+IF_TRUE_0:
+        mov     r0, #1
+        b       END_IF_0
+IF_FALSE_0:
+        ldr     r0, [sp, #0]
+        mov     r1, #1
+        sub     r2, r0, r1
+        mov     r0, r2
+        bl      fib
+        str     r0, [sp, #4]
+        ldr     r1, [sp, #0]
+        mov     r2, #2
+        sub     r3, r1, r2
+        str     r0, [sp, #4]
+        mov     r0, r3
+        bl      fib
+        str     r0, [sp, #8]
+        ldr     r1, [sp, #4]
+        ldr     r0, [sp, #8]
+        add     r2, r1, r0
+        str     r2, [sp, #12]
+        ldr     r0, [sp, #12]
+END_IF_0:
+        mov     sp, r11
+        pop     {r11, lr}
+        bx      lr
+_start:
+        push    {r11, lr}
+        mov     r11, sp
+        sub     sp, sp, #12
+        mov     r0, #0
+        str     r0, [sp, #8]
+BEGIN_WHILE_0:
+        ldr     r0, [sp, #8]
+        mov     r1, #10
+        cmp     r0, r1
+        blt     WHILE_TRUE_0
+        b       END_WHILE_0
+WHILE_TRUE_0:
+        ldr     r0, [sp, #8]
+        bl      fib
+        str     r0, [sp, #4]
+        ldr     r0, [sp, #4]
+        bl      OutputInt
+        ldr     r1, [sp, #8]
+        mov     r2, #1
+        add     r3, r1, r2
+        str     r3, [sp, #8]
+        b       BEGIN_WHILE_0
+END_WHILE_0:
+        mov     sp, r11
+        pop     {r11, lr}
+        bx      lr

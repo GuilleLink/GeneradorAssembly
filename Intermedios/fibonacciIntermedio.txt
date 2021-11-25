@@ -1,0 +1,37 @@
+DEF fib
+        IF L[0] <= 2 GOTO IF_TRUE_0
+        GOTO IF_FALSE_0
+        IF_TRUE_0
+                RETURN 1
+                GOTO END_IF_0
+        IF_FALSE_0
+                t0 = L[0] - 1
+                PARAM t0
+                CALL fib, 1
+                L[4] = R
+                t0 = L[0] - 2
+                PARAM t0
+                CALL fib, 1
+                L[8] = R
+                t0 = L[4] + L[8]
+                L[12] = t0
+                RETURN L[12]
+        END_IF_0
+EXIT DEF fib
+
+DEF main
+        L[8] = 0
+        BEGIN_WHILE_0
+                IF L[8] < 10 GOTO WHILE_TRUE_0
+                GOTO END_WHILE_0
+        WHILE_TRUE_0
+                PARAM L[0]
+                CALL fib, 1
+                L[4] = R
+                PARAM L[4]
+                CALL OutputInt, 1
+                t0 = L[8] + 1
+                L[8] = t0
+                GOTO BEGIN_WHILE_0
+        END_WHILE_0
+EXIT DEF main

@@ -1,0 +1,91 @@
+DEF OutputInt
+EXIT DEF OutputInt
+
+DEF InputInt
+        Return 0
+EXIT DEF InputInt
+
+DEF Minimo
+        t0 = t4 * L[0]
+        t1 = t0 + 0
+        L[4] = G[t1]
+        L[8] = L[0]
+        BEGIN_WHILE_0
+                IF L[0] < 10 GOTO WHILE_TRUE_0
+                GOTO END_WHILE_0
+        WHILE_TRUE_0
+                t0 = 4 * L[0]
+                t1 = t0 + 0
+                IF G[t1] < L[4] GOTO IF_TRUE_0
+                GOTO END_IF_0
+                IF_TRUE_0
+                        t0 = 4 * L[0]
+                        t2 = t0 + 0
+                        L[4] = G[t2]
+                        L[8] = L[0]
+                END_IF_0
+                t0 = L[0] + 1
+                L[0] = t0
+                GOTO BEGIN_WHILE_0
+        END_WHILE_0
+        RETURN L[8]
+EXIT DEF Minimo
+
+DEF Ordenar
+        L[0] = 0
+        BEGIN_WHILE_1
+                IF L[0] < 10 GOTO WHILE_TRUE_1
+                GOTO END_WHILE_1
+        WHILE_TRUE_1
+                PARAM L[0]
+                CALL Minimo, 1
+                L[8] = R
+                t0 = 4 * L[8]
+                t2 = t0 + 0
+                L[4] = G[t2]
+                t0 = 4 * L[8]
+                t2 = t0 + 0
+                t0 = 4 * L[0]
+                t3 = t0 + 0
+                G[t2] = G[t3]
+                t0 = 4 * L[0]
+                t3 = t0 + 0
+                G[t2] = G[t3]
+                t0 = 4 * L[0]
+                t2 = t0 + 0
+                G[t2] = L[4]
+                t0 = L[0] + 1
+                L[0] = t0
+                GOTO BEGIN_WHILE_1
+        END_WHILE_1
+EXIT DEF Ordenar
+
+DEF main
+        L[0] = 0
+        BEGIN_WHILE_2
+                IF L[0] < 10 GOTO WHILE_TRUE_2
+                GOTO END_WHILE_2
+        WHILE_TRUE_2
+                CALL InputInt, 0
+                t0 = 4 * L[0]
+                t2 = t0 + 0
+                G[t2] = R
+                t0 = L[0] + 1
+                L[0] = t0
+                GOTO BEGIN_WHILE_2
+        END_WHILE_2
+        CALL Ordenar, 0
+        L[0] = 0
+        BEGIN_WHILE_3
+                IF L[0] < 10 GOTO WHILE_TRUE_3
+                GOTO END_WHILE_3
+        WHILE_TRUE_3
+                t0 = 4 * L[0]
+                t2 = t0 + 0
+                PARAM G[t2]
+                CALL OutputInt, 1
+                t0 = L[0] + 1
+                L[0] = t0
+                GOTO BEGIN_WHILE_3
+        END_WHILE_3
+EXIT DEF main

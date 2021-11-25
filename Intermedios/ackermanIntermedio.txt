@@ -1,0 +1,30 @@
+DEF Ackerman
+        IF L[0] == 0 GOTO_IF_TRUE_0
+        GOTO IF_FALSE_0
+        IF_TRUE_0
+                t0 = L[4] + 1
+                RETURN t0
+                GOTO END_IF_0
+        IF_FALSE_0                
+                IF L[4] == 0 GOTO IF_TRUE_1
+                GOTO IF_FALSE_1
+                IF_TRUE_1
+                        t0 = L[0] - 1
+                        PARAM t0
+                        PARAM 1
+                        CALL Ackerman, 2
+                        RETURN R
+                        GOTO END IF 1
+                IF_FALSE_1
+                        t1 = L[4] - 1
+                        PARAM L[0]
+                        PARAM t1
+                        CALL Ackerman, 2
+                        t0 = L[0] - 1
+                        PARAM t0
+                        PARAM R
+                        CALL Ackerman, 2
+                        RETURN R
+                END_IF_1
+        END_IF_0
+EXIT DEF Ackerman
